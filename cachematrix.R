@@ -29,7 +29,7 @@ cacheSolve <- function(x, ...)
     print("Retrieving inverse from cache")
     return(inverse)#return it from cache
   }
-  inverse=solve(x$get(), ...)#otherwise, calculate inverse
+  inverse<-solve(x$get(), ...)#otherwise, calculate inverse
   x$setinverse(inverse)#set inverse in cache
   inverse#return inverse
 }
