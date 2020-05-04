@@ -4,6 +4,7 @@ features <- read.table("./UCI\ HAR\ Dataset/features.txt")
 #Reading activity_labels
 activity <- read.table("./UCI\ HAR\ Dataset/activity_labels.txt", col.names=c("activityid", "label"))
 #Reading Train Tables
+#VARIABLES ARE GIVEN DESCRIPTIVE NAMES WHILE READING ITSELF FROM FEATURES.TXT
 xtrain <- read.table("./UCI\ HAR\ Dataset/train/X_train.txt", col.names = features$V2)
 ytrain <- read.table("./UCI\ HAR\ Dataset/train/Y_train.txt", col.names="activityid")
 subjecttrain <- read.table("./UCI\ HAR\ Dataset/train/subject_train.txt", col.names = "subjectid")
