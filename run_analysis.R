@@ -1,14 +1,11 @@
 #Downloaded the UCI HAR Dataset directly from browser
 #Reading all features
-library(tidyr)
 features <- read.table("./UCI\ HAR\ Dataset/features.txt")
 #Reading activity_labels
 activity <- read.table("./UCI\ HAR\ Dataset/activity_labels.txt", col.names=c("activityid", "label"))
-head(activity)
 #Reading Train Tables
 xtrain <- read.table("./UCI\ HAR\ Dataset/train/X_train.txt", col.names = features$V2)
 ytrain <- read.table("./UCI\ HAR\ Dataset/train/Y_train.txt", col.names="activityid")
-?read.table
 subjecttrain <- read.table("./UCI\ HAR\ Dataset/train/subject_train.txt", col.names = "subjectid")
 #Reading test tables
 xtest <-read.table("./UCI\ HAR\ Dataset/test/X_test.txt", col.names = features$V2)
@@ -38,5 +35,6 @@ labelledfinal <- labelledfinal[, -1]
 finaltidy <- labelledfinal %>%
                     group_by(subjectid, label) %>%
                          summarise_each(mean)
+
 #writing data to tidy text file
-write.table(finaltidy, "tidy_dataset.txt", row.names = FALSE)
+write.table(finaltidy, "tidy_dataset.txt", row.names = FALSE, quote=FALSE)
